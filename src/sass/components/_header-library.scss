@@ -4,7 +4,7 @@
     padding-top: 40px;
     min-height: 230px;
 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-home-phone@1x.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-library-phone@1x.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -12,24 +12,24 @@
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 2dppx),
     (min-resolution: 2dpi) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-home-phone@2x.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-library-phone@2x.jpg');
     }
 
     @media screen and (min-width: 768px) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-home-tabet@1x.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-library-tabet@1x.jpg');
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 2dppx),
         (min-resolution: 2dpi) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-home-tabet@2x.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-library-tabet@2x.jpg');
         }
     }
     @media screen and (min-width: 1280px) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-home-desktop@1x.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-library-desktop@1x.jpg');
         
             @media (min-device-pixel-ratio: 2),
             (min-resolution: 2dppx),
             (min-resolution: 2dpi) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-home-desktop@2x.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/header-library-desktop@2x.jpg');
         }
     }
 }
@@ -112,56 +112,48 @@
     }
 }
 
-.search-form {
-    position: relative;
-   display: flex;
-   width: 280px;
-  margin: 0 auto 22px;
-
-  justify-content: center;
-    
-}
-.search-field {
-    width: 100%;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #FFFFFF;
-    background-color: transparent;
-    border: transparent;
-    border-bottom: 1px solid #FFFFFF;
-
-    &::placeholder {
-        color: #FFFFFF;
-
+.buttons {
+    display: flex;
+    justify-content: center;
 }
 
-    &:focus,
-    &:hover {
-        outline: none;
-     
-    }
-  
-    @media screen and (min-width: 768px) {
-      width: 336px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        width: 394px;
-      }
-  }
-
-  .search-form-button {
-    position: absolute;
-    top: 0;
-    right: 0;
+.buttons__list {
     padding: 0;
- 
-    background-color: transparent;
-    border: transparent; 
+    margin-right: 20px;
+    width: 130px;
+    height: 44px;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.56);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-align: center;
 
-  }
-  
- 
 
-  
+&:last-child {
+    margin-right: 0;
+}
+
+    @media screen and (min-width: 768px) {
+        margin-right: 32px;
+        width: 152px;
+    }
+    @media screen and (min-width: 1280px) {
+        margin-right: 16px;
+        width: 148px;
+        height: 42px;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: #FF6B01;
+        border: 1px solid #FF6B01;
+        box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+        border-radius: 5px;
+    }   
+}
+
+
