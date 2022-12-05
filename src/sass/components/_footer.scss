@@ -1,3 +1,10 @@
 .footer{
     min-height: 79px;
 }
+.footer__item{
+    display: flex;
+    justify-content: center;
+}
+.footer__name{
+    margin-left: 10px;
+}
