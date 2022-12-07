@@ -16,7 +16,7 @@ function fetchGenres() {
     );
     setGenresInLocalStorage('genres', response.data.genres);
   } catch (error) {
-    console.error(error);
+    // console.error(error);
   }
 }
 
@@ -71,7 +71,7 @@ async function getMovies(page = 1) {
       infiniteObserver.observe(lastCard);
     }
   } catch (error) {
-    console.error(error);
+    // console.error(error);
   }
 }
 
