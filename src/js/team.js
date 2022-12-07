@@ -19,7 +19,7 @@ const markup = `<ul class="team__wrapper">
     </li>
     <li class="team__card">
         <img src="${team__lead}" alt="Kateryna" class="team__image">
-        <p class="team__name">3</p>
+        <p class="team__name">Dmitriy Antonenko</p>
         <p class="team__role">Developer</p>
        
     </li>
