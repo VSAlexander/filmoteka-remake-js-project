@@ -14,7 +14,7 @@ function fetchGenres() {
     );
     setGenresInLocalStorage('genres', response.data.genres);
   } catch (error) {
-    console.error(error);
+    // console.error(error);
   }
 }
 

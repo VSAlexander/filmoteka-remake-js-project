@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_KEY, fetchGenres } from './fetchGenres';
 import { renderMovieCards } from './renderMovieCards';
 
-// const API_KEY = '2954afe7c35181c36bf30aa4bc9ce527';
+const API_KEY = '2954afe7c35181c36bf30aa4bc9ce527';
 
 const moviesList = document.querySelector('.movies-list');
 
@@ -17,7 +17,8 @@ async function getMovies() {
 
     moviesList.innerHTML += renderMovieCards(response.data.results);
   } catch (error) {
-    console.error(error);
+  //   console.error(error);
+    // 
   }
 }
 
