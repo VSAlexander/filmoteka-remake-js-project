@@ -1,5 +1,7 @@
 .movies-list {
   //   margin: 0 auto;
+  flex: 1;
+
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -101,6 +103,28 @@
     @media (min-width: 1280px) {
       font-size: 20px;
       line-height: 24px;
+    }
+
+    .rating {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+
+      width: 36px;
+      height: 16px;
+
+      font-size: 12px;
+      line-height: 14px;
+
+      color: #ffffff;
+      background-color: #ff6b01;
+      border-radius: 5px;
+
+      @media (min-width: 1280px) {
+        width: 40px;
+        height: 20px;
+      }
     }
   }
 }
