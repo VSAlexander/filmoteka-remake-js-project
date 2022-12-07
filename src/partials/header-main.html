@@ -36,22 +36,44 @@
     </form>
   </div>
   <!-- Разметка переключателя темы -->
-  <div class="toolbar">
-    <div class="theme-switch">
-      <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
-        <use href="./images/icons/sprite.svg#icon-search"></use>
-      </svg>
-  
-      <div class="theme-switch__control">
-        <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
-          aria-label="Переключить между тёмной и светлой темой" />
-        <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
-        </label>
-        <div aria-hidden="true" class="theme-switch__marker"></div>
-      </div>
-  
-      <svg class="theme-switch__icon" aria-label="Иконка луны">
-        <use href="./images/icons/sprite.svg#icon-search"></use>
-      </svg>
+  <div class="theme-switch">
+    <div class="theme-switch__control">
+      <input
+        class="theme-switch__toggle"
+        type="checkbox"
+        name="theme"
+        id="codepen"
+        aria-label="Переключить между тёмной и светлой темой"
+      />
+      <label
+        aria-hidden="true"
+        class="theme-switch__track"
+        for="codepen"
+      >
+        <div class="theme__icon">
+          <span>
+            <svg type="image/svg+xml" class="sunny__icon">
+              <use
+                type="image/svg+xml"
+                class=""
+                alt="иконка луны"
+                href="./images/icons/sprite.svg#icon-moon"
+              ></use>
+            </svg>
+          </span>
+          <span>
+            <svg type="image/svg+xml" class="sunny__icon">
+              <use
+                type="image/svg+xml"
+                class=""
+                alt="иконка солнца"
+                href="./images/icons/sprite.svg#icon-sun"
+              ></use></svg>
+            </span>
+        </div>
+      </label>
   </div>
+  </div>
+</div>
+<!-- Конец разметка переключателя темы -->
 </header>

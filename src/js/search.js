@@ -4,6 +4,7 @@ const form = document.querySelector('.search-form');
 const moviesList = document.querySelector('.movies-list');
 
 export function searchMovie(movieForSearch) {
+
     return fetch(`https://api.themoviedb.org/3/search/movie?api_key=5266ce003df04ebad77cca2af658cdf2&language=en-US&page=1&include_adult=false&query=${movieForSearch}`)
     .then(response => {
         if(!response.ok){
