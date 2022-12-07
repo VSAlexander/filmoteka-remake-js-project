@@ -115,9 +115,9 @@
 .search-form {
     position: relative;
    display: flex;
+   flex-wrap: wrap;
    width: 280px;
   margin: 0 auto 22px;
-
   justify-content: center;
     
 }
@@ -161,3 +161,19 @@
     border: transparent; 
 
   }
+
+    .notification {
+    text-align: center;
+    color: rgba(255, 0, 27, 1);
+    align-items: center;
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    }
+
+    .is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    }
