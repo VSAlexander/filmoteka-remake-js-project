@@ -84,10 +84,11 @@ async function getMovies(page = 1) {
         document.querySelector('.movie-header').innerHTML = title;
         document.querySelector('.vote').innerHTML = vote;
         document.querySelector('.votes').innerHTML = votes;
-        document.querySelector('.popularity').innerHTML = popularity;
-        document.querySelector('.original_title').innerHTML = original_title;
+        document.querySelector('.popularity-modal').innerHTML = popularity;
+        document.querySelector('.original_title-modal').innerHTML =
+          original_title;
         document.querySelector('.genres').innerHTML = genres;
-        document.querySelector('.overview').innerHTML = overview;
+        document.querySelector('.overview-modal').innerHTML = overview;
 
         backdrop.classList.remove('is-hidden');
       });
