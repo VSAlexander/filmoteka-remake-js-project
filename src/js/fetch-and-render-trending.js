@@ -16,7 +16,7 @@ async function fetchGenres() {
     );
     setGenresInLocalStorage('genres', response.data.genres);
   } catch (error) {
-    // console.error(error);
+    console.error(error);
   }
 }
 
@@ -48,7 +48,6 @@ let nextPage = 2;
 const infiniteObserver = new IntersectionObserver(([entry], observer) => {
   if (entry.isIntersecting) {
     observer.unobserve(entry.target);
-    // console.log(entry);
     getMovies(nextPage++);
   }
 });
@@ -69,7 +68,6 @@ async function getMovies(page = 1) {
 
     moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
       el.addEventListener('click', event => {
-        console.log(event.currentTarget);
         const li = event.currentTarget;
         const thumb = li.querySelector('.movies-list__item-thumb').innerHTML;
         const title = li.querySelector('.movies-list__item-title').textContent;
@@ -96,12 +94,11 @@ async function getMovies(page = 1) {
     });
 
     const lastCard = document.querySelector('.movies-list__item:last-child');
-    // console.log(lastCard);
     if (lastCard) {
       infiniteObserver.observe(lastCard);
     }
   } catch (error) {
-    // console.error(error);
+    console.error(error);
   }
 }
 
@@ -168,3 +165,17 @@ function checkLengthOfGenres(array) {
 //////////////////////////////////////
 
 getMovies();
+
+backdrop.addEventListener(
+  'click',
+  function (event) {
+    if (
+      event.target.matches('.button-close-modal') ||
+      !event.target.closest('.modal')
+    ) {
+      backdrop.classList.add('is-hidden');
+      document.body.style.overflow = 'scroll';
+    }
+  },
+  false
+);
