@@ -1,6 +1,6 @@
 // import { changeTheme } from './js/changeTheme';
 import { team } from './js/team';
-  import { searchMovie } from './js/search';
+  // import { searchMovie } from './js/search';
 
 import { spinner } from './js/spinner';
 
