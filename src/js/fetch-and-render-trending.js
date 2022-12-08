@@ -68,6 +68,8 @@ async function getMovies(page = 1) {
 
     moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
       el.addEventListener('click', event => {
+        document.body.style.overflow = 'hidden';
+
         const li = event.currentTarget;
         const thumb = li.querySelector('.movies-list__item-thumb').innerHTML;
         const title = li.querySelector('.movies-list__item-title').textContent;
