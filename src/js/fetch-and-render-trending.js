@@ -57,11 +57,9 @@ const infiniteObserver = new IntersectionObserver(([entry], observer) => {
 
 ///////////// FETCH TRENDING MOVIES  /////////////
 
-
 const backdrop = document.querySelector('.backdrop');
 
 export async function getMovies(page = 1) {
-
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=${page}`

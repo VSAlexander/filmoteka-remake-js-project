@@ -2,8 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
 //local Storage import
-import {  } from './';
-
+import {} from './';
 
 const apiKey = '5266ce003df04ebad77cca2af658cdf2';
 
