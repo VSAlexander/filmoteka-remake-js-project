@@ -57,9 +57,11 @@ const infiniteObserver = new IntersectionObserver(([entry], observer) => {
 
 ///////////// FETCH TRENDING MOVIES  /////////////
 
+
 const backdrop = document.querySelector('.backdrop');
 
-async function getMovies(page = 1) {
+export async function getMovies(page = 1) {
+
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
@@ -145,7 +147,7 @@ function renderMovieCards(data) {
     .join('');
 }
 
-function checkLengthOfGenres(array) {
+export function checkLengthOfGenres(array) {
   const allGenres = getGenresFromLocalStorage('genres')
     .filter(genre => array.includes(genre.id))
     .map(genre => genre.name);
