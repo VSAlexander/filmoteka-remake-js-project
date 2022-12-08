@@ -121,10 +121,12 @@ img {
   @media (min-width: 768px) and (max-width: 1279px) {
     width: 264px;
     height: 374px;
+    margin-right: 20px;
   }
 
   @media (min-width: 1280px) {
-    width: 375px;
+    width: 325px;
     height: 478px;
+    margin-right: 20px;
   }
 }
