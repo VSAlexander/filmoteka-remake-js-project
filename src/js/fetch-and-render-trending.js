@@ -115,10 +115,10 @@ function renderMovieCards(data) {
       movie => `<li class="movies-list__item">
       <div class="movies-list__item-thumb">
         <img loading="lazy"
-          class="movies-list__item-card-img"
-          src="https://image.tmdb.org/t/p/w342${movie.poster_path}"
-          srcset="https://image.tmdb.org/t/p/w342${movie.poster_path} 1x,
-          https://image.tmdb.org/t/p/w780${movie.poster_path} 2x"
+          class="movies-list__item-card-img lozad"
+          data-src="https://image.tmdb.org/t/p/w342${movie.poster_path}"
+          data-srcset="https://image.tmdb.org/t/p/w342${movie.poster_path} 1x,
+          https://image.tmdb.org/t/p/w500${movie.poster_path} 2x"
 
           alt="${movie.title}">
       </div>
@@ -140,6 +140,7 @@ function renderMovieCards(data) {
           1
         )}</span>
         <span class="popularity hidden">${movie.popularity.toFixed(1)}</span>
+        <span class="genres hidden">${movie.genre_ids}</span>
         <span class="overview hidden">${movie.overview}</span>
         <span class="original_title hidden">${movie.original_title}</span>
         </li>`
