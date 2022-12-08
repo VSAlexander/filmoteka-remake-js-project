@@ -57,6 +57,8 @@ const infiniteObserver = new IntersectionObserver(([entry], observer) => {
 
 ///////////// FETCH TRENDING MOVIES  /////////////
 
+const backdrop = document.querySelector('.backdrop');
+
 async function getMovies(page = 1) {
   try {
     const response = await axios.get(
@@ -64,6 +66,32 @@ async function getMovies(page = 1) {
     );
 
     moviesList.innerHTML += renderMovieCards(response.data.results);
+
+    moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
+      el.addEventListener('click', event => {
+        console.log(event.currentTarget);
+        const li = event.currentTarget;
+        const thumb = li.querySelector('.movies-list__item-thumb').innerHTML;
+        const title = li.querySelector('.movies-list__item-title').textContent;
+        const votes = li.querySelector('.vote_count').textContent;
+        const vote = li.querySelector('.rating').textContent;
+        const popularity = li.querySelector('.popularity').textContent;
+        const original_title = li.querySelector('.original_title').textContent;
+        const genres = li.querySelector('.movies-list__item-info').textContent;
+        const overview = li.querySelector('.overview').textContent;
+
+        document.querySelector('.image-thumb').innerHTML = thumb;
+        document.querySelector('.movie-header').innerHTML = title;
+        document.querySelector('.vote').innerHTML = vote;
+        document.querySelector('.votes').innerHTML = votes;
+        document.querySelector('.popularity').innerHTML = popularity;
+        document.querySelector('.original_title').innerHTML = original_title;
+        document.querySelector('.genres').innerHTML = genres;
+        document.querySelector('.overview').innerHTML = overview;
+
+        backdrop.classList.remove('is-hidden');
+      });
+    });
 
     const lastCard = document.querySelector('.movies-list__item:last-child');
     // console.log(lastCard);
@@ -104,6 +132,14 @@ function renderMovieCards(data) {
           : 'No info'
       } <span class="rating">${movie.vote_average.toFixed(1)}</span></p>
         </div>
+
+        <span class="vote_count hidden">${movie.vote_count}</span>
+        <span class="vote_average hidden">${movie.vote_average.toFixed(
+          1
+        )}</span>
+        <span class="popularity hidden">${movie.popularity.toFixed(1)}</span>
+        <span class="overview hidden">${movie.overview}</span>
+        <span class="original_title hidden">${movie.original_title}</span>
         </li>`
     )
     .join('');

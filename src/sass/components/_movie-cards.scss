@@ -139,4 +139,20 @@
       }
     }
   }
+
+  .vote_count.hidden {
+    display: none;
+  }
+  .vote_average.hidden {
+    display: none;
+  }
+  .popularity.hidden {
+    display: none;
+  }
+  .overview.hidden {
+    display: none;
+  }
+  .original_title.hidden {
+    display: none;
+  }
 }
