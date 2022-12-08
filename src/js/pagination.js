@@ -157,7 +157,7 @@ function hideExtremeButtons(totalPages) {
   try {
     if (
       /Android|webOS|iPhone|iPad|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent,
+        navigator.userAgent
       )
     ) {
       // код для мобильных устройств
@@ -172,7 +172,7 @@ function hideExtremeButtons(totalPages) {
         allPaginationBtns[allPaginationBtns.length - 1].classList.add('hide');
       } else {
         allPaginationBtns[allPaginationBtns.length - 1].classList.remove(
-          'hide',
+          'hide'
         );
       }
     }
