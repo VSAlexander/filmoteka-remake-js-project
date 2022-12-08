@@ -7,9 +7,9 @@ const containerRef = document.querySelector('.js-team__modal');
 
 const markup = `<ul class="team__wrapper">
     <li class="team__lead list">
-    <img src="${team__lead}" alt="1" class="team__image">
-        <p class="team__name">1</p>
-        <p class="team__role">Team Lead / Developer </p>
+    <img src="${team__lead}" alt="Kolonuik Serhii" class="team__image">
+        <p class="team__name">Kolonuik Serhii</p>
+        <p class="team__role">Team Lead</p>
     </li>
     <li class="team__card">
         <img src="${team__lead}" alt="Kateryna" class="team__image">
@@ -24,14 +24,14 @@ const markup = `<ul class="team__wrapper">
        
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Kateryna" class="team__image">
-        <p class="team__name">4</p>
+        <img src="${team__lead}" alt="Havryliuk Iryna" class="team__image">
+        <p class="team__name">Havryliuk Iryna</p>
         <p class="team__role">Developer</p>
         
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Kateryna" class="team__image"> 
-        <p class="team__name">5</p>
+        <img src="${team__lead}" alt="Pedko Olena" class="team__image"> 
+        <p class="team__name">Pedko Olena</p>
         <p class="team__role">Developer</p>
         
     </li>
