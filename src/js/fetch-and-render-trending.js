@@ -77,7 +77,7 @@ async function getMovies(page = 1) {
         const vote = li.querySelector('.rating').textContent;
         const popularity = li.querySelector('.popularity').textContent;
         const original_title = li.querySelector('.original_title').textContent;
-        const genres = li.querySelector('.movies-list__item-info').textContent;
+        const genres = li.querySelector('.genres').textContent;
         const overview = li.querySelector('.overview').textContent;
 
         document.querySelector('.image-thumb').innerHTML = thumb;
@@ -87,7 +87,8 @@ async function getMovies(page = 1) {
         document.querySelector('.popularity-modal').innerHTML = popularity;
         document.querySelector('.original_title-modal').innerHTML =
           original_title;
-        document.querySelector('.genres').innerHTML = genres;
+        document.querySelector('.genres-modal').innerHTML =
+          checkLengthOfGenres(genres);
         document.querySelector('.overview-modal').innerHTML = overview;
 
         backdrop.classList.remove('is-hidden');
