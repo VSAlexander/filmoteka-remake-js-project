@@ -1,7 +1,14 @@
 import * as basicLightbox from 'basiclightbox';
 
-import team__lead from '../images/header-home-desktop@1x.jpg';
-import social from '../images/icons/sprite.svg';
+import team__lead from '../images/team/sergiy.jpg';
+import scrum from '../images/team/oleksandr_kostenko.jpg';
+import dmytro from '../images/team/dmytro.jpg';
+import iryna from '../images/team/iryna.jpg';
+import olena from '../images/team/olena.jpg';
+import oleksiy from '../images/team/oleksiy.jpg';
+import empty from '../images/header-home-desktop@1x.jpg';
+
+// import social from '../images/icons/sprite.svg';
 
 const containerRef = document.querySelector('.js-team__modal');
 
@@ -12,49 +19,49 @@ const markup = `<ul class="team__wrapper">
         <p class="team__role">Team Lead</p>
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Kateryna" class="team__image">
-        <p class="team__name">2</p>
+        <img src="${scrum}" alt="oleksandr_kostenko" class="team__image">
+        <p class="team__name">Kostenko Oleksandr</p>
         <p class="team__role">Scrum/Developer</p>
         
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Kateryna" class="team__image">
-        <p class="team__name">Dmitriy Antonenko</p>
+        <img src="${dmytro}" alt="Dmitro Antonenko" class="team__image">
+        <p class="team__name">Dmitro Antonenko</p>
         <p class="team__role">Developer</p>
        
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Havryliuk Iryna" class="team__image">
+        <img src="${iryna}" alt="Havryliuk Iryna" class="team__image">
         <p class="team__name">Havryliuk Iryna</p>
         <p class="team__role">Developer</p>
         
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Pedko Olena" class="team__image"> 
+        <img src="${olena}" alt="Pedko Olena" class="team__image"> 
         <p class="team__name">Pedko Olena</p>
         <p class="team__role">Developer</p>
         
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Kateryna" class="team__image">
-        <p class="team__name">6</p>
+        <img src="${oleksiy}" alt="oleksiy" class="team__image">
+        <p class="team__name">Oleksiy</p>
         <p class="team__role">Developer</p>
         
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Kateryna" class="team__image">  
+        <img src="${empty}" alt="Kateryna" class="team__image">  
         <p class="team__name">7</p>
         <p class="team__role">Developer</p>
         
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Kateryna" class="team__image"> 
+        <img src="${empty}" alt="Kateryna" class="team__image"> 
         <p class="team__name">8</p>
         <p class="team__role">Developer</p>
         
     </li>
     <li class="team__card">
-        <img src="${team__lead}" alt="Kateryna" class="team__image">
+        <img src="${empty}" alt="Kateryna" class="team__image">
         <p class="team__name">9</p>
         <p class="team__role">Developer</p>
        
