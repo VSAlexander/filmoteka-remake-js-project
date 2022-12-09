@@ -101,6 +101,7 @@ export async function getMovies(page = 1) {
 
         backdrop.classList.remove('is-hidden');
       });
+      
     });
 
     //// Adding movie card to localStorage
