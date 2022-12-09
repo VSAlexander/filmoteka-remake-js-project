@@ -43,14 +43,14 @@ const markup = `<ul class="team__wrapper">
         
     </li>
     <li class="team__card">
-        <img src="${oleksiy}" alt="oleksiy" class="team__image">
-        <p class="team__name">Oleksiy</p>
+        <img src="${oleksiy}" alt="oleksiy Chernyakin" class="team__image">
+        <p class="team__name">Chernyakin Oleksiy</p>
         <p class="team__role">Developer</p>
         
     </li>
     <li class="team__card">
-        <img src="${empty}" alt="Kateryna" class="team__image">  
-        <p class="team__name">7</p>
+        <img src="${empty}" alt="Oleksandr Shevchenko" class="team__image">  
+        <p class="team__name">Oleksandr Shevchenko</p>
         <p class="team__role">Developer</p>
         
     </li>
