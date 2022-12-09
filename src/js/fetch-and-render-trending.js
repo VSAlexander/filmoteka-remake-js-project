@@ -1,4 +1,6 @@
 import axios from 'axios';
+import lozad from 'lozad';
+const observe = lozad();
 
 const moviesList = document.querySelector('.movies-list');
 
@@ -65,6 +67,7 @@ export async function getMovies(page = 1) {
     );
 
     moviesList.innerHTML += renderMovieCards(response.data.results);
+    observe.observe();
 
     moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
       el.addEventListener('click', event => {
