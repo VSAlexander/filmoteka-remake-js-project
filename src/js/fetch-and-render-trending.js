@@ -195,7 +195,7 @@ backdrop.addEventListener(
   'click',
   function (event) {
     if (
-      event.target.matches('.button-close-modal') ||
+      event.target.matches('.modal-close-btn') ||
       !event.target.closest('.modal')
     ) {
       backdrop.classList.add('is-hidden');
