@@ -16,7 +16,7 @@ async function fetchGenres() {
     );
     setGenresInLocalStorage('genres', response.data.genres);
   } catch (error) {
-    // console.error(error);
+    console.error(error);
   }
 }
 
@@ -48,7 +48,6 @@ let nextPage = 2;
 const infiniteObserver = new IntersectionObserver(([entry], observer) => {
   if (entry.isIntersecting) {
     observer.unobserve(entry.target);
-    // console.log(entry);
     getMovies(nextPage++);
   }
 });
@@ -69,7 +68,8 @@ export async function getMovies(page = 1) {
 
     moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
       el.addEventListener('click', event => {
-        console.log(event.currentTarget);
+        document.body.style.overflow = 'hidden';
+
         const li = event.currentTarget;
         const thumb = li.querySelector('.movies-list__item-thumb').innerHTML;
         const title = li.querySelector('.movies-list__item-title').textContent;
@@ -77,29 +77,30 @@ export async function getMovies(page = 1) {
         const vote = li.querySelector('.rating').textContent;
         const popularity = li.querySelector('.popularity').textContent;
         const original_title = li.querySelector('.original_title').textContent;
-        const genres = li.querySelector('.movies-list__item-info').textContent;
+        const genres = li.querySelector('.genres').textContent;
         const overview = li.querySelector('.overview').textContent;
 
         document.querySelector('.image-thumb').innerHTML = thumb;
         document.querySelector('.movie-header').innerHTML = title;
         document.querySelector('.vote').innerHTML = vote;
         document.querySelector('.votes').innerHTML = votes;
-        document.querySelector('.popularity').innerHTML = popularity;
-        document.querySelector('.original_title').innerHTML = original_title;
-        document.querySelector('.genres').innerHTML = genres;
-        document.querySelector('.overview').innerHTML = overview;
+        document.querySelector('.popularity-modal').innerHTML = popularity;
+        document.querySelector('.original_title-modal').innerHTML =
+          original_title;
+        document.querySelector('.genres-modal').innerHTML =
+          checkLengthOfGenres(genres);
+        document.querySelector('.overview-modal').innerHTML = overview;
 
         backdrop.classList.remove('is-hidden');
       });
     });
 
     const lastCard = document.querySelector('.movies-list__item:last-child');
-    // console.log(lastCard);
     if (lastCard) {
       infiniteObserver.observe(lastCard);
     }
   } catch (error) {
-    // console.error(error);
+    console.error(error);
   }
 }
 
@@ -113,10 +114,10 @@ function renderMovieCards(data) {
       movie => `<li class="movies-list__item">
       <div class="movies-list__item-thumb">
         <img loading="lazy"
-          class="movies-list__item-card-img"
-          src="https://image.tmdb.org/t/p/w342${movie.poster_path}"
-          srcset="https://image.tmdb.org/t/p/w342${movie.poster_path} 1x,
-          https://image.tmdb.org/t/p/w780${movie.poster_path} 2x"
+          class="movies-list__item-card-img lozad"
+          data-src="https://image.tmdb.org/t/p/w342${movie.poster_path}"
+          data-srcset="https://image.tmdb.org/t/p/w342${movie.poster_path} 1x,
+          https://image.tmdb.org/t/p/w500${movie.poster_path} 2x"
 
           alt="${movie.title}">
       </div>
@@ -138,6 +139,7 @@ function renderMovieCards(data) {
           1
         )}</span>
         <span class="popularity hidden">${movie.popularity.toFixed(1)}</span>
+        <span class="genres hidden">${movie.genre_ids}</span>
         <span class="overview hidden">${movie.overview}</span>
         <span class="original_title hidden">${movie.original_title}</span>
         </li>`
@@ -165,3 +167,17 @@ export function checkLengthOfGenres(array) {
 //////////////////////////////////////
 
 getMovies();
+
+backdrop.addEventListener(
+  'click',
+  function (event) {
+    if (
+      event.target.matches('.button-close-modal') ||
+      !event.target.closest('.modal')
+    ) {
+      backdrop.classList.add('is-hidden');
+      document.body.style.overflow = 'scroll';
+    }
+  },
+  false
+);
