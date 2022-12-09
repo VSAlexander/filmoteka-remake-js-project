@@ -1,60 +1,64 @@
 .container {
-    color: #545454;
-  
-    .footer__image {
-      margin-left: 10px;
-      margin-right: 10px;
-      fill: #ff6b08;
-    }
+  color: #545454;
+
+  .footer__image {
+    margin-left: 10px;
+    margin-right: 10px;
+    fill: #ff6b08;
   }
-  
-  .footer {
-    background-color: rgb(247, 247, 247);
+}
+
+.footer {
+  background-color: rgb(247, 247, 247);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 320px) {
+  .copyright {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 29px;
+    padding-bottom: 10px;
   }
-  
-  @media screen and (min-width: 320px) {
-    .copyright {
-      margin: 0px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 29px;
-      padding-bottom: 10px;
-    }
-  
-    .developers {
-      margin: 0px;
-      display: flex;
-      align-items: center;
-      padding-bottom: 30px;
-    }
-    .footer__page {
-      font-size: 14px;
-      font-weight: 400;
-    }
+
+  .developers {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
   }
-  
-  @media screen and (min-width: 768px) {
-    .footer__page {
-      display: flex;
-      justify-content: center;
-    }
-  
-    .copyright {
-      padding-top: 30px;
-      padding-bottom: 28px;
-    }
-    .developers {
-      padding-top: 30px;
-      padding-bottom: 28px;
-    }
-  
-    .footer__page {
-      font-size: 16px;
-      font-weight: 400;
-    }
+  .footer__page {
+    font-size: 14px;
+    font-weight: 400;
   }
-  
+}
+
+@media screen and (min-width: 768px) {
+  .footer__page {
+    display: flex;
+    justify-content: center;
+  }
+
+  .copyright {
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+  .developers {
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+
+  .footer__page {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
 // .footer{
 //     min-height: 79px;
 //     margin-top: 30px;
@@ -68,7 +72,7 @@
 // }
 // .footer__name-line::after{
 //     content: "";
-    
+
 //     left: 0;
 //     bottom: 0;
 //     height: 15px;

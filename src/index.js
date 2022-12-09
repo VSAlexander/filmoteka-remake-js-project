@@ -1,10 +1,8 @@
 // import { changeTheme } from './js/changeTheme';
 import { team } from './js/team';
-  // import { searchMovie } from './js/search';
+ import { searchMovie } from './js/search';
 
-import { spinner } from './js/spinner';
-
-// //    import { render, renderOnSearchMistake } from './js/cards';
+ import { spinner } from './js/spinner';
 
 import {
   fetchGenres,
@@ -12,6 +10,5 @@ import {
   API_KEY,
 } from './js/fetch-and-render-trending';
 
-import { up } from './js/up';
-
-//    import { render, renderOnSearchMistake } from './js/cards';
+ import { up } from './js/up';
+ import { renderPagination} from './js/pagination';
