@@ -72,6 +72,8 @@ export async function getMovies(page = 1) {
     moviesList.innerHTML += renderMovieCards(response.data.results);
     observe.observe();
 
+    /// Modal logic
+
     moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
       el.addEventListener('click', event => {
         // console.log(event.currentTarget);
@@ -102,6 +104,8 @@ export async function getMovies(page = 1) {
         backdrop.classList.remove('is-hidden');
       });
     });
+
+    /////
 
     //// Adding movie card to localStorage
 
@@ -207,12 +211,12 @@ backdrop.addEventListener(
 
 //// Inserting in library-list movie cards
 
-window.addEventListener('load', () => {
-  if (localStorage.getItem('add-to-watched') === null) {
-    return;
-  }
-  const libraryList = document.querySelector('.library-list');
-  libraryList.innerHTML = JSON.parse(localStorage.getItem('add-to-watched'));
-});
+// window.addEventListener('load', () => {
+//   if (localStorage.getItem('add-to-watched') === null) {
+//     return;
+//   }
+//   const libraryList = document.querySelector('.library-list');
+//   libraryList.innerHTML = JSON.parse(localStorage.getItem('add-to-watched'));
+// });
 
 ////
