@@ -60,6 +60,9 @@ const infiniteObserver = new IntersectionObserver(([entry], observer) => {
 
 const backdrop = document.querySelector('.backdrop');
 
+const addToWatchedBtn = document.querySelector('.button-watched-modal');
+const addToQueueBtn = document.querySelector('.button-queue-modal');
+
 export async function getMovies(page = 1) {
   try {
     const response = await axios.get(
@@ -71,6 +74,7 @@ export async function getMovies(page = 1) {
 
     moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
       el.addEventListener('click', event => {
+        // console.log(event.currentTarget);
         document.body.style.overflow = 'hidden';
 
         const li = event.currentTarget;
@@ -93,10 +97,26 @@ export async function getMovies(page = 1) {
         document.querySelector('.genres-modal').innerHTML =
           checkLengthOfGenres(genres);
         document.querySelector('.overview-modal').innerHTML = overview;
+        document.querySelector('.markup-for-library').appendChild(li);
 
         backdrop.classList.remove('is-hidden');
       });
     });
+
+    //// Adding movie card to localStorage
+
+    addToWatchedBtn.addEventListener('click', event => {
+      const movieCardForLibrary = document.querySelector(
+        '.markup-for-library'
+      ).innerHTML;
+
+      localStorage.setItem(
+        'add-to-watched',
+        JSON.stringify(movieCardForLibrary)
+      );
+    });
+
+    ////
 
     const lastCard = document.querySelector('.movies-list__item:last-child');
     if (lastCard) {
@@ -184,3 +204,15 @@ backdrop.addEventListener(
   },
   false
 );
+
+//// Inserting in library-list movie cards
+
+window.addEventListener('load', () => {
+  if (localStorage.getItem('add-to-watched') === null) {
+    return;
+  }
+  const libraryList = document.querySelector('.library-list');
+  libraryList.innerHTML = JSON.parse(localStorage.getItem('add-to-watched'));
+});
+
+////
