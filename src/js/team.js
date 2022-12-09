@@ -6,7 +6,8 @@ import dmytro from '../images/team/dmytro.jpg';
 import iryna from '../images/team/iryna.jpg';
 import olena from '../images/team/olena.jpg';
 import oleksiy from '../images/team/oleksiy.jpg';
-import empty from '../images/header-home-desktop@1x.jpg';
+import oleksandr_shevchenko from '../images/team/oleksandr_shevchenko.jpg';
+
 
 // import social from '../images/icons/sprite.svg';
 
@@ -49,22 +50,10 @@ const markup = `<ul class="team__wrapper">
         
     </li>
     <li class="team__card">
-        <img src="${empty}" alt="Oleksandr Shevchenko" class="team__image">  
+        <img src="${oleksandr_shevchenko}" alt="Oleksandr Shevchenko" class="team__image">  
         <p class="team__name">Oleksandr Shevchenko</p>
         <p class="team__role">Developer</p>
         
-    </li>
-    <li class="team__card">
-        <img src="${empty}" alt="Kateryna" class="team__image"> 
-        <p class="team__name">8</p>
-        <p class="team__role">Developer</p>
-        
-    </li>
-    <li class="team__card">
-        <img src="${empty}" alt="Kateryna" class="team__image">
-        <p class="team__name">9</p>
-        <p class="team__role">Developer</p>
-       
     </li>
 </ul>`;
 
