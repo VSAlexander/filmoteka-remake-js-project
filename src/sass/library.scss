@@ -1,10 +1,15 @@
 @import './common';
+@import './components/change-theme';
 @import './components/header-library';
 
+
 @import './components/movie-card';
+
+@import './components/movie-library';
 @import './components/modal';
-@import './components/change-theme';
-@import './components/team-modal';
 
 @import './components/footer';
+@import './components/team-modal';
+@import './components/spinner';
+
 @import './components/up';
