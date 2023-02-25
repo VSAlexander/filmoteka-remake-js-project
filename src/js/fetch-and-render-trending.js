@@ -8,38 +8,38 @@ const API_KEY = '2954afe7c35181c36bf30aa4bc9ce527';
 
 /////////    GENRES     /////////
 
-async function fetchGenres() {
-  if (localStorage.getItem('genres') !== null) {
-    return;
-  }
-  try {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
-    );
-    setGenresInLocalStorage('genres', response.data.genres);
-  } catch (error) {
-    console.error(error);
-  }
-}
+// async function fetchGenres() {
+//   if (localStorage.getItem('genres') !== null) {
+//     return;
+//   }
+//   try {
+//     const response = await axios.get(
+//       `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
+//     );
+//     setGenresInLocalStorage('genres', response.data.genres);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
-function setGenresInLocalStorage(key, value) {
-  try {
-    const stringifiedGenres = JSON.stringify(value);
-    localStorage.setItem(key, stringifiedGenres);
-  } catch (error) {
-    console.error(error.message);
-  }
-}
+// function setGenresInLocalStorage(key, value) {
+//   try {
+//     const stringifiedGenres = JSON.stringify(value);
+//     localStorage.setItem(key, stringifiedGenres);
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// }
 
-function getGenresFromLocalStorage(key) {
-  try {
-    return JSON.parse(localStorage.getItem(key));
-  } catch (error) {
-    console.error('Get state error: ', error.message);
-  }
-}
+// function getGenresFromLocalStorage(key) {
+//   try {
+//     return JSON.parse(localStorage.getItem(key));
+//   } catch (error) {
+//     console.error('Get state error: ', error.message);
+//   }
+// }
 
-fetchGenres();
+// fetchGenres();
 
 ///////////////////////
 
@@ -58,6 +58,82 @@ const infiniteObserver = new IntersectionObserver(([entry], observer) => {
 
 ///////////// FETCH TRENDING MOVIES  /////////////
 
+// const backdrop = document.querySelector('.backdrop');
+
+// const addToWatchedBtn = document.querySelector('.button-watched-modal');
+// const addToQueueBtn = document.querySelector('.button-queue-modal');
+
+// export async function getMovies(page = 1) {
+//   try {
+//     const response = await axios.get(
+//       `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
+//     );
+
+//     moviesList.innerHTML += renderMovieCards(response.data.results);
+//     observe.observe();
+
+//     /// Modal logic
+
+//     moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
+//       el.addEventListener('click', event => {
+//         // console.log(event.currentTarget);
+//         document.body.style.overflow = 'hidden';
+
+//         const li = event.currentTarget;
+//         const thumb = li.querySelector('.movies-list__item-thumb').innerHTML;
+//         const title = li.querySelector('.movies-list__item-title').textContent;
+//         const votes = li.querySelector('.vote_count').textContent;
+//         const vote = li.querySelector('.rating').textContent;
+//         const popularity = li.querySelector('.popularity').textContent;
+//         const original_title = li.querySelector('.original_title').textContent;
+//         const genres = li.querySelector('.genres').textContent;
+//         const overview = li.querySelector('.overview').textContent;
+
+//         document.querySelector('.image-thumb').innerHTML = thumb;
+//         document.querySelector('.movie-header').innerHTML = title;
+//         document.querySelector('.vote').innerHTML = vote;
+//         document.querySelector('.votes').innerHTML = votes;
+//         document.querySelector('.popularity-modal').innerHTML = popularity;
+//         document.querySelector('.original_title-modal').innerHTML =
+//           original_title;
+//         document.querySelector('.genres-modal').innerHTML =
+//           checkLengthOfGenres(genres);
+//         document.querySelector('.overview-modal').innerHTML = overview;
+//         document.querySelector('.markup-for-library').appendChild(li);
+
+//         backdrop.classList.remove('is-hidden');
+//       });
+
+//     });
+
+//     /////
+
+//     //// Adding movie card to localStorage
+
+//     addToWatchedBtn.addEventListener('click', event => {
+//       const movieCardForLibrary = document.querySelector(
+//         '.markup-for-library'
+//       ).innerHTML;
+
+//       localStorage.setItem(
+//         'add-to-watched',
+//         JSON.stringify(movieCardForLibrary)
+//       );
+//     });
+
+//     ////
+
+//     const lastCard = document.querySelector('.movies-list__item:last-child');
+//     if (lastCard) {
+//       infiniteObserver.observe(lastCard);
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+/// Remake
+
 const backdrop = document.querySelector('.backdrop');
 
 const addToWatchedBtn = document.querySelector('.button-watched-modal');
@@ -72,14 +148,12 @@ export async function getMovies(page = 1) {
     moviesList.innerHTML += renderMovieCards(response.data.results);
     observe.observe();
 
-    /// Modal logic
+    // Modal logic
 
-    moviesList.querySelectorAll('.movies-list__item').forEach(function (el) {
-      el.addEventListener('click', event => {
-        // console.log(event.currentTarget);
+    moviesList.addEventListener('click', event => {
+      const li = event.target.closest('.movies-list__item');
+      if (li) {
         document.body.style.overflow = 'hidden';
-
-        const li = event.currentTarget;
         const thumb = li.querySelector('.movies-list__item-thumb').innerHTML;
         const title = li.querySelector('.movies-list__item-title').textContent;
         const votes = li.querySelector('.vote_count').textContent;
@@ -99,11 +173,10 @@ export async function getMovies(page = 1) {
         document.querySelector('.genres-modal').innerHTML =
           checkLengthOfGenres(genres);
         document.querySelector('.overview-modal').innerHTML = overview;
-        document.querySelector('.markup-for-library').appendChild(li);
+        // document.querySelector('.markup-for-library').appendChild(li);
 
         backdrop.classList.remove('is-hidden');
-      });
-      
+      }
     });
 
     /////
@@ -139,7 +212,7 @@ export async function getMovies(page = 1) {
 function renderMovieCards(data) {
   return data
     .map(
-      movie => `<li class="movies-list__item">
+      movie => `<li class="movies-list__item" data-modal-open>
       <div class="movies-list__item-thumb">
         <img loading="lazy"
           class="movies-list__item-card-img lozad"

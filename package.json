@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "This project was created with Parcel. For familiarization and setting additional features [refer to documentation](https://parceljs.org/).",
-  "homepage": "https://VSAlexander.github.io/filmoteka-remake-js-project",
+  "homepage": "https://VSAlexander.github.io/filmoteka-remake-js-project/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /filmoteka-remake-js-project/"
@@ -21,9 +21,11 @@
     "axios": "^1.2.1",
     "basiclightbox": "^5.0.4",
     "buffer": "^5.5.0",
+    "lazyload": "^2.0.0-rc.2",
     "lodash.throttle": "^4.1.1",
     "lozad": "^1.16.0",
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "vanilla-lazyload": "^17.8.3"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",

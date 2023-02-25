@@ -1,22 +1,26 @@
 .movies-list {
   //   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   flex: 1;
 
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  margin-top: 15px;
+
   @media (min-width: 768px) {
     display: flex;
     // justify-content: center;
+    flex-direction: row;
     flex-wrap: wrap;
   }
 
   &__item {
     display: flex;
     flex-direction: column;
-    transition: box-shadow 0.5s cubic-bezier(0.28, 0.7, 0.75, 0.45);
+    // transition: box-shadow 0.5s cubic-bezier(0.28, 0.7, 0.75, 0.45);
     border-radius: 5px;
     font-family: Roboto;
     font-weight: 500;
@@ -25,8 +29,8 @@
     line-height: 1.33;
     &:hover {
       cursor: pointer;
-      box-shadow: 0px -2px 32px 1px rgba(0, 0, 0, 0.69);
-      transform: scale(1.08);
+      // box-shadow: 0px -2px 32px 1px rgba(0, 0, 0, 0.69);
+      // transform: scale(1.08);
     }
 
     @media (max-width: 767px) {
@@ -76,6 +80,13 @@
     border-radius: 5px;
 
     flex: 1;
+
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &.is-loaded {
+      opacity: 1;
+    }
 
     // object-fit: cover;
   }
@@ -156,6 +167,9 @@
     display: none;
   }
   .original_title.hidden {
+    display: none;
+  }
+  .release_date.hidden {
     display: none;
   }
 }

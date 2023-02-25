@@ -1,10 +1,8 @@
 <div class="backdrop is-hidden">
-
   <div class="modal" data-modal>
-    <button type="button" class="modal-close-btn" data-modal-close>
-
-      <svg class="modal__img" width="30px" height="30px">
-          <use href="./images/icons/sprite.svg#icon-close"></use>
+    <button type="button" class="modal-close-btn" >
+      <svg class="modal-close-btn__icon" data-modal-close>
+        <use href="./images/icons/sprite.svg#icon-close" data-modal-close></use>
       </svg>
     </button>
     <div class="modal-content">
@@ -38,11 +36,10 @@
         <p class="overview-modal"></p>
 
         <ul class="modal-buttons">
-          <button class="button-watched-modal" type="submit">ADD TO WATCHED</button>
-          <button class="button-queue-modal" type="submit">ADD TO QUEUE</button>
+          <button id="add-to-watched-btn" class="button-watched-modal" type="button">ADD TO WATCHED</button>
+          <button id="add-to-queue-btn" class="button-queue-modal" type="button">ADD TO QUEUE</button>
         </ul>
 
-        <span class="markup-for-library hidden"></span>
-      </div>
-    
+        <span class="release_date-modal hidden"></span>
+      </div>    
 </div>

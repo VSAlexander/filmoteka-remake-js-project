@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 29px;
+    padding-top: 10px;
     padding-bottom: 10px;
   }
 
@@ -30,7 +30,11 @@
     margin: 0px;
     display: flex;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
+
+    p {
+      margin: 0;
+    }
   }
   .footer__page {
     font-size: 14px;
@@ -45,12 +49,12 @@
   }
 
   .copyright {
-    padding-top: 30px;
-    padding-bottom: 28px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   .developers {
-    padding-top: 30px;
-    padding-bottom: 28px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   .footer__page {
