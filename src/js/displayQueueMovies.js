@@ -1,4 +1,4 @@
-import { queueMoviesArr } from './addToQueue';
+// import { queueMoviesArr } from './addToQueue';
 import { openModal, closeModal } from './movieModal';
 
 const backdrop = document.querySelector('.backdrop');
@@ -6,7 +6,7 @@ const backdrop = document.querySelector('.backdrop');
 const queueListEl = document.querySelector('.queue.movies-list');
 
 function displayQueueMovies() {
-  queueMoviesArr = JSON.parse(localStorage.getItem('queueMovies')) || [];
+  const queueMoviesArr = JSON.parse(localStorage.getItem('queueMovies')) || [];
   queueListEl.innerHTML = queueMoviesArr
     ?.reverse()
     ?.map(movie => {
