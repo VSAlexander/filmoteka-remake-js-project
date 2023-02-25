@@ -1,9 +1,10 @@
-import { watchedMoviesArr } from './addToWatched';
+// import { watchedMoviesArr } from './addToWatched';
 
 const watchedListEl = document.querySelector('.watched');
 
 function displayWatchedMovies() {
-  watchedMoviesArr = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+  const watchedMoviesArr =
+    JSON.parse(localStorage.getItem('watchedMovies')) || [];
   watchedListEl.innerHTML = watchedMoviesArr
     .reverse()
     .map(movie => {
@@ -29,14 +30,14 @@ function displayWatchedMovies() {
   console.log('Watched movies HTML:');
 }
 
-// window.addEventListener('storage', event => {
-//   if (event.key === 'watchedMovies') {
-//     console.log('Hello');
-//     displayWatchedMovies();
-//   }
-// });
+window.addEventListener('storage', event => {
+  if (event.key === 'watchedMovies') {
+    console.log('Hello');
+    displayWatchedMovies();
+  }
+});
 
-displayWatchedMovies();
+// displayWatchedMovies();
 
 // Logic of choosing watchedList by clicking on watchedBtn
 
