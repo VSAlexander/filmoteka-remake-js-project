@@ -3,7 +3,7 @@
 const watchedListEl = document.querySelector('.watched');
 
 function displayWatchedMovies() {
-  const watchedMoviesArr =
+  let watchedMoviesArr =
     JSON.parse(localStorage.getItem('watchedMovies')) || [];
   watchedListEl.innerHTML = watchedMoviesArr
     .reverse()
@@ -37,7 +37,7 @@ window.addEventListener('storage', event => {
   }
 });
 
-// displayWatchedMovies();
+displayWatchedMovies();
 
 // Logic of choosing watchedList by clicking on watchedBtn
 

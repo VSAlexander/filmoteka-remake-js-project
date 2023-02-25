@@ -1,12 +1,10 @@
 // import { queueMoviesArr } from './addToQueue';
 import { openModal, closeModal } from './movieModal';
 
-const backdrop = document.querySelector('.backdrop');
-
 const queueListEl = document.querySelector('.queue.movies-list');
 
 function displayQueueMovies() {
-  const queueMoviesArr = JSON.parse(localStorage.getItem('queueMovies')) || [];
+  let queueMoviesArr = JSON.parse(localStorage.getItem('queueMovies')) || [];
   queueListEl.innerHTML = queueMoviesArr
     ?.reverse()
     ?.map(movie => {
@@ -33,11 +31,14 @@ function displayQueueMovies() {
 
 // displayQueueMovies();
 
-window.addEventListener('storage', displayQueueMovies);
+window.addEventListener('storage', event => {
+  if (event.key === 'queueMovies') {
+    console.log('Hello');
+    displayQueueMovies();
+  }
+});
 
-if (backdrop.classList.contains('is-hidden')) {
-  displayQueueMovies();
-}
+displayQueueMovies();
 
 // Logic of choosing queueList by clicking on queueBtn
 
