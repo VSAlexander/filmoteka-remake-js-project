@@ -1,3 +1,5 @@
+import { closeModal } from './movieModal';
+
 const modal = document.querySelector('[data-modal]');
 export const addToWatchedBtn = modal.querySelector('.button-watched-modal');
 export let watchedMoviesArr =
@@ -39,6 +41,10 @@ function addToWatched() {
 
 export function handleWatchedButtonClick() {
   addToWatched();
+
+  // dispatch custom event when movie is adding to watched list
+  const watchedAddEvent = new Event('watchedAdd');
+  window.dispatchEvent(watchedAddEvent);
 }
 
 export function handleDeleteWatchedButtonClick() {
@@ -49,9 +55,13 @@ export function handleDeleteWatchedButtonClick() {
   addToWatchedBtn.removeEventListener('click', handleDeleteWatchedButtonClick);
   addToWatchedBtn.addEventListener('click', handleWatchedButtonClick);
 
-  // if (document.location.pathname === '/library.html') {
-  //   document.location.reload(true);
-  // }
+  // dispatch custom event when movie is deleting from watched list
+  const watchedDeleteEvent = new Event('watchedDelete');
+  window.dispatchEvent(watchedDeleteEvent);
+
+  if (document.location.pathname === '/library.html') {
+    closeModal();
+  }
 }
 
 addToWatchedBtn.addEventListener('click', handleWatchedButtonClick);

@@ -1,10 +1,13 @@
-// import { queueMoviesArr } from './addToQueue';
-import { openModal, closeModal } from './movieModal';
+import { queueMoviesArr } from './addToQueue';
+import { openModal } from './movieModal';
 
 const queueListEl = document.querySelector('.queue.movies-list');
 
 function displayQueueMovies() {
-  let queueMoviesArr = JSON.parse(localStorage.getItem('queueMovies')) || [];
+  if (queueMoviesArr.length === 0) {
+    queueListEl.innerHTML = `<h2 class='no-movies'>Nothing added to queue list yet</h2>`;
+    return;
+  }
   queueListEl.innerHTML = queueMoviesArr
     ?.reverse()
     ?.map(movie => {
@@ -29,14 +32,8 @@ function displayQueueMovies() {
     .join('');
 }
 
-// displayQueueMovies();
-
-window.addEventListener('storage', event => {
-  if (event.key === 'queueMovies') {
-    console.log('Hello');
-    displayQueueMovies();
-  }
-});
+window.addEventListener('queueDelete', displayQueueMovies); // if 'Delete from queue' button was pressed this event shoots and calls displayQueueMovies()
+window.addEventListener('queueAdd', displayQueueMovies); // if 'Add to queue' button was pressed this event shoots and calls displayQueueMovies()
 
 displayQueueMovies();
 
@@ -62,12 +59,6 @@ queueListEl.addEventListener('click', event => {
     openModal(movieCard);
   }
 });
-
-//
-
-// if (backdrop.classList.contains('is-hidden')) {
-//   displayQueueMovies();
-// }
 
 // The reason the modal window is not working
 // when I switch to the queue list is that I

@@ -1,10 +1,12 @@
-// import { watchedMoviesArr } from './addToWatched';
+import { watchedMoviesArr } from './addToWatched';
 
 const watchedListEl = document.querySelector('.watched');
 
-function displayWatchedMovies() {
-  let watchedMoviesArr =
-    JSON.parse(localStorage.getItem('watchedMovies')) || [];
+export function displayWatchedMovies() {
+  if (watchedMoviesArr.length === 0) {
+    watchedListEl.innerHTML = `<h2 class='no-movies'>Nothing added to watched list yet</h2>`;
+    return;
+  }
   watchedListEl.innerHTML = watchedMoviesArr
     .reverse()
     .map(movie => {
@@ -27,15 +29,10 @@ function displayWatchedMovies() {
       `;
     })
     .join('');
-  console.log('Watched movies HTML:');
 }
 
-window.addEventListener('storage', event => {
-  if (event.key === 'watchedMovies') {
-    console.log('Hello');
-    displayWatchedMovies();
-  }
-});
+window.addEventListener('watchedDelete', displayWatchedMovies); // if 'Delete from watched' button was pressed this event shoots and calls displayWatchedMovies()
+window.addEventListener('watchedAdd', displayWatchedMovies); // if 'Add to watched' button was pressed this event shoots and calls displayWatchedMovies()
 
 displayWatchedMovies();
 
@@ -58,5 +55,3 @@ watchedBtn.addEventListener('click', () => {
   watchedList.style.display = 'flex';
   queueList.style.display = 'none';
 });
-
-//

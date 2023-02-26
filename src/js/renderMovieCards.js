@@ -1,7 +1,4 @@
-import { fetchGenres } from './fetchGenres';
 import { getGenresFromLS } from './fetchGenres';
-
-fetchGenres();
 
 export function renderMovieCards(data) {
   return data
@@ -59,18 +56,18 @@ export function renderMovieCards(data) {
 
 function checkLengthOfGenres(array) {
   const allGenres = getGenresFromLS()
-    .filter(genre => array.includes(genre.id))
+    ?.filter(genre => array.includes(genre.id))
     .map(genre => genre.name);
 
-  if (allGenres.includes('Science Fiction')) {
+  if (allGenres?.includes('Science Fiction')) {
     allGenres.splice(allGenres.indexOf('Science Fiction'), 1, 'Sci-Fi');
   }
 
-  if (allGenres.length === 0) {
+  if (allGenres?.length === 0) {
     return 'No genres specified';
   }
 
-  if (allGenres.length > 3) {
+  if (allGenres?.length > 3) {
     allGenres.splice(2, 1, 'Other');
     return allGenres.slice(0, 3).join(', ');
   } else {

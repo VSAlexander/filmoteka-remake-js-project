@@ -32,6 +32,8 @@ export function getGenresFromLS() {
   }
 }
 
+fetchGenres();
+
 // export async function getGenres() {
 //   const storedGenres = localStorage.getItem('movieGenres');
 //   if (storedGenres) {

@@ -1,3 +1,5 @@
+import { closeModal } from './movieModal';
+
 const modal = document.querySelector('[data-modal]');
 export const addToQueueBtn = modal.querySelector('.button-queue-modal');
 export let queueMoviesArr =
@@ -40,6 +42,10 @@ function addToQueue() {
 
 export function handleQueueButtonClick() {
   addToQueue();
+
+  // dispatch custom event when movie is adding to queue list
+  const queueAddEvent = new Event('queueAdd');
+  window.dispatchEvent(queueAddEvent);
 }
 
 export function handleDeleteQueueButtonClick() {
@@ -50,9 +56,13 @@ export function handleDeleteQueueButtonClick() {
   addToQueueBtn.removeEventListener('click', handleDeleteQueueButtonClick);
   addToQueueBtn.addEventListener('click', handleQueueButtonClick);
 
-  // if (document.location.pathname === '/library.html') {
-  //   document.location.reload(true);
-  // }
+  // dispatch custom event when movie is deleting from queue list
+  const queueDeleteEvent = new Event('queueDelete');
+  window.dispatchEvent(queueDeleteEvent);
+
+  if (document.location.pathname === '/library.html') {
+    closeModal();
+  }
 }
 
 addToQueueBtn.addEventListener('click', handleQueueButtonClick);

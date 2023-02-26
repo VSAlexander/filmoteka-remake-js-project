@@ -1,0 +1,29 @@
+.btn-up {
+  position: fixed;
+  bottom: -60px;
+  right: 20px;
+  z-index: 99;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  //   font-size: 18px;
+  transition: bottom 0.3s;
+}
+
+.btn-up:hover {
+  background-color: #555;
+}
+
+.btn-up svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.btn-up--active {
+  bottom: 20px;
+}
