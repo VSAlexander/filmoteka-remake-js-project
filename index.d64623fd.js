@@ -1,2 +1,0 @@
-!function(){const e=document.querySelector("body"),t=document.querySelector("#codepen"),c={LIGHT:"light-theme",DARK:"dark-theme"};!function(){const s=localStorage.getItem("Theme");s===c.DARK?(e.classList.add(s),t.checked=!0):e.classList.add(c.LIGHT)}(),t.addEventListener("change",(function(){e.classList.toggle(c.DARK),e.classList.toggle(c.LIGHT),t=e.classList,localStorage.setItem("Theme",t);var t}))}();
-//# sourceMappingURL=index.d64623fd.js.map
