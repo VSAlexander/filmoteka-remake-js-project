@@ -34,7 +34,7 @@ async function displayMoviesByQuery(page) {
 
   if (results.length === 0) {
     // If no movies are returned from the API, display a message to the user.
-    movieListEl.innerHTML = '<p>No movies found for your search query.</p>';
+    movieListEl.innerHTML = `<h2 class='no-movies'>No movies found for your search query</h2>`;
   } else {
     const movieCardsHTML = renderMovieCards(results);
     if (page === 1) {
