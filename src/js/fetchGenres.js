@@ -26,28 +26,11 @@ function setGenresInLS(value) {
 
 export function getGenresFromLS() {
   try {
-    return JSON.parse(localStorage.getItem('genres'));
+    const genres = JSON.parse(localStorage.getItem('genres'));
+    return genres ? genres : [];
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
 }
 
 fetchGenres();
-
-// export async function getGenres() {
-//   const storedGenres = localStorage.getItem('movieGenres');
-//   if (storedGenres) {
-//     return JSON.parse(storedGenres);
-//   }
-//   try {
-//     const response = await axios.get(GENRES_URL);
-//     const data = response.data;
-
-//     localStorage.setItem('movieGenres', JSON.stringify(data.genres));
-
-//     return data.genres;
-//   } catch (error) {
-//     console.error(error);
-//     return [];
-//   }
-// }
